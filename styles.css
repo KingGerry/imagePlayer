@@ -1,17 +1,22 @@
 :root {
   color-scheme: light dark;
   --bg: #0f172a;
-  --card: #1e293b;
+  --card: #11324d;
   --text: #e2e8f0;
-  --muted: #94a3b8;
+  --muted: #cdd5df;
   --accent: #38bdf8;
-  --border: #334155;
+  --border: #1c4d70;
   --shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
   font-family: "Inter", "Noto Sans SC", system-ui, -apple-system, sans-serif;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 body {
@@ -22,12 +27,17 @@ body {
     radial-gradient(circle at 80% 80%, rgba(45, 212, 191, 0.12), transparent 30%),
     var(--bg);
   color: var(--text);
+  display: flex;
+  flex-direction: column;
 }
 
 .page {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 32px clamp(16px, 4vw, 32px) 48px;
+  flex: 1;
+  width: 100%;
+  padding: 18px clamp(16px, 4vw, 24px) 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .hero {
@@ -68,11 +78,16 @@ h1 {
 }
 
 .player {
-  background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(30, 41, 59, 0.7));
+  background: linear-gradient(145deg, rgba(17, 50, 77, 0.9), rgba(17, 50, 77, 0.7));
   border: 1px solid var(--border);
   border-radius: 20px;
-  padding: 20px;
+  padding: 16px;
   box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+  flex: 1;
 }
 
 .frame {
@@ -81,9 +96,11 @@ h1 {
   overflow: hidden;
   background: #0b1120;
   border: 1px solid var(--border);
-  min-height: clamp(220px, 40vw, 420px);
+  min-height: clamp(260px, 42vw, 520px);
   display: grid;
   place-items: center;
+  flex: 1;
+  min-width: 0;
 }
 
 .frame img {
@@ -117,57 +134,95 @@ h1 {
   grid-template-columns: auto 1fr;
   gap: 16px;
   align-items: center;
-  margin-top: 16px;
+  margin-top: 4px;
 }
 
 .legend {
-  margin-top: 20px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 12px 14px 14px;
+  margin-top: 4px;
+  background: linear-gradient(135deg, rgba(25, 83, 125, 0.9), rgba(17, 50, 77, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .legend__header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+  align-items: baseline;
+  margin-bottom: 8px;
   color: var(--muted);
   font-size: 14px;
 }
 
-.legend__title {
-  font-weight: 700;
-  color: var(--text);
-}
-
-.legend__unit {
-  font-variant-numeric: tabular-nums;
-}
-
-.legend__bar {
-  display: grid;
+.legend__title-row {
+  display: inline-flex;
+  align-items: center;
   gap: 6px;
 }
 
+.legend__title {
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.legend__chevron {
+  font-size: 13px;
+  color: var(--muted);
+  transform: translateY(1px);
+}
+
+.legend__subtitle {
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.legend__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.legend__swatch {
+  width: 48px;
+  height: 120px;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
 .legend__gradient {
-  height: 14px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #c0392b 0%, #f1c40f 50%, #27ae60 100%);
-  border: 1px solid var(--border);
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #f97316 0%, #facc15 50%, #1d4ed8 100%);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
-.legend__ticks {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  color: var(--muted);
-  font-size: 12px;
+.legend__labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 120px;
+  padding: 4px 0;
+  color: var(--text);
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
-.legend__ticks span {
-  text-align: center;
+.legend__label-top {
+  font-size: 16px;
+}
+
+.legend__label-bottom {
+  font-size: 14px;
+  color: var(--muted);
 }
 
 .button {
