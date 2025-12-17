@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图片时间轴播放器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">images / YYYY_MM_DD.png</p>
+        <h1>时间轴图片播放器</h1>
+        <p class="lede">拖动或播放时间轴，按天预览 <code>images</code> 文件夹中的图片。</p>
+      </div>
+      <div class="today-chip" id="todayChip">今天：--</div>
+    </header>
+
+    <section class="player">
+      <div class="frame" aria-live="polite">
+        <img id="image" alt="按日期显示的图片" />
+        <div class="frame__status" id="frameStatus" role="status">加载中…</div>
+      </div>
+
+      <div class="controls">
+        <button id="playButton" type="button" class="button">▶ 播放</button>
+        <div class="slider-group">
+          <label for="timeline" class="slider-label">
+            <span>时间轴</span>
+            <span id="dateLabel" class="date-label">--</span>
+          </label>
+          <input id="timeline" type="range" min="0" max="0" value="0" step="1" />
+          <div class="range-hints" aria-hidden="true">
+            <span id="startLabel">--</span>
+            <span id="endLabel">--</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
