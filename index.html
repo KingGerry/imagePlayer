@@ -21,6 +21,24 @@
       <div class="frame" aria-live="polite">
         <img id="image" alt="按日期显示的图片" />
         <div class="frame__status" id="frameStatus" role="status">加载中…</div>
+        <section class="legend legend--overlay" aria-label="潜水蒸发量图例">
+          <header class="legend__header">
+            <div class="legend__title-row">
+              <span class="legend__title">图例</span>
+              <span class="legend__chevron" aria-hidden="true">⌄</span>
+            </div>
+            <div class="legend__subtitle">潜水蒸发量 (mm/d)</div>
+          </header>
+          <div class="legend__content">
+            <div class="legend__swatch" aria-hidden="true">
+              <div class="legend__gradient legend__gradient--vertical"></div>
+            </div>
+            <div class="legend__labels" aria-hidden="true">
+              <span class="legend__label-top">2.5</span>
+              <span class="legend__label-bottom">-1</span>
+            </div>
+          </div>
+        </section>
       </div>
 
       <div class="controls">
@@ -37,25 +55,6 @@
           </div>
         </div>
       </div>
-
-      <section class="legend" aria-label="潜水蒸发量图例">
-        <header class="legend__header">
-          <div class="legend__title-row">
-            <span class="legend__title">图例</span>
-            <span class="legend__chevron" aria-hidden="true">⌄</span>
-          </div>
-          <div class="legend__subtitle">潜水蒸发量 (mm/d)</div>
-        </header>
-        <div class="legend__content">
-          <div class="legend__swatch" aria-hidden="true">
-            <div class="legend__gradient legend__gradient--vertical"></div>
-          </div>
-          <div class="legend__labels" aria-hidden="true">
-            <span class="legend__label-top">≥ 1.5</span>
-            <span class="legend__label-bottom">0</span>
-          </div>
-        </div>
-      </section>
     </section>
   </main>
   <script src="script.js"></script>
