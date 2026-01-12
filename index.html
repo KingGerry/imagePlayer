@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图片时间轴播放器</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-Kx2bVl7URloYSSBQfZ4fLAjrHOgvJSi2srqVXrDVwscjoC1qmzPjoNEQDElAUm5y" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">images / YYYY_MM_DD.tif</p>
+        <h1>时间轴地图播放器</h1>
+        <p class="lede">拖动或播放时间轴，按天预览 <code>images</code> 文件夹中的 GeoTIFF 数据。</p>
+      </div>
+      <div class="today-chip" id="todayChip">今天：--</div>
+    </header>
+
+    <section class="player">
+      <div class="frame" aria-live="polite">
+        <div id="map" class="map" role="img" aria-label="按日期显示的 TIF 地图"></div>
+        <div class="frame__status" id="frameStatus" role="status">加载中…</div>
+        <section class="legend legend--overlay" aria-label="潜水蒸发量图例">
+          <header class="legend__header">
+            <div class="legend__title-row">
+              <span class="legend__title">图例</span>
+              <span class="legend__chevron" aria-hidden="true">⌄</span>
+            </div>
+            <div class="legend__subtitle">潜水蒸发量 (mm/d)</div>
+          </header>
+          <div class="legend__content">
+            <div class="legend__swatch" aria-hidden="true">
+              <div class="legend__gradient legend__gradient--vertical"></div>
+            </div>
+            <div class="legend__labels" aria-hidden="true">
+              <span class="legend__label-top">2.5</span>
+              <span class="legend__label-bottom">-1</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="controls">
+        <button id="playButton" type="button" class="button">▶ 播放</button>
+        <div class="slider-group">
+          <label for="timeline" class="slider-label">
+            <span>时间轴</span>
+            <span id="dateLabel" class="date-label">--</span>
+          </label>
+          <input id="timeline" type="range" min="0" max="0" value="0" step="1" />
+          <div class="range-hints" aria-hidden="true">
+            <span id="startLabel">--</span>
+            <span id="endLabel">--</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-T06MoYzaiX2nAPN9XSfpJnkplUcKDg53Z+TNkL0uY0dZBUhv4scZpX5RyNs7wg90" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/geotiff@2.1.3/dist-browser/geotiff.min.js" integrity="sha384-kHIM3fFioyITAK9x8BWpR+Pfu9O0L4SlOsZ+I7u+WIDWvwAvt3fLuOqS3sYxxh92" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/georaster@1.7.0/dist/georaster.min.js" integrity="sha384-uMfhazuzvqTTvLAr5DBRiHyotEwEydhCkM6XwkCdqYJ1HKN0qCnQZQOoRltTsUKg" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/georaster-layer-for-leaflet@3.6.0/dist/georaster-layer-for-leaflet.min.js" integrity="sha384-wQTkM5xwId1kqoCXc0Ie19bw+g6z/EpLta+X9OIFVyrxX3zCui3xkq4yP1V48Xz0" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/geoblaze@1.7.0/dist/geoblaze.min.js" integrity="sha384-WWkObWTgUQmtcsSc2nGMcxEiwYPGhEliOiJnA8EAWtKq7dZDP5IJkS+Aarj7FxhI" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>
